@@ -1,19 +1,19 @@
-import { GetServerSideProps } from "next";
-import { Card } from "antd";
-import React, { useEffect } from "react";
 import { getUser } from "@helpers/session.helper";
+import { Button, Card, Modal } from "antd";
+import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import SiderLayout from "src/layouts/SiderLayout/SiderLayout";
+import UploadCSV from "../../src/components/molecules/UploadCSV/UploadCSV";
 
 interface IDashboardProps {
   login: boolean;
   employees: [];
-  // eslint-disable-next-line
-  user: any;
 }
 
-const Dashboard = ({ login, user }: IDashboardProps): React.ReactElement => {
+const Dashboard = ({ login }: IDashboardProps): React.ReactElement => {
   const router = useRouter();
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (!login) {
@@ -21,9 +21,26 @@ const Dashboard = ({ login, user }: IDashboardProps): React.ReactElement => {
     }
   }, [login]);
 
+  const openUploadModal = (): void => {
+    setIsUploadModalOpen(true);
+  };
+
   return (
     <>
-      <Card title="Welcome to Salary Management MVP"></Card>
+      <Card title="Welcome to Salary Management MVP">
+        <Button type="primary" onClick={openUploadModal}>
+          Upload Employees Information
+        </Button>
+      </Card>
+      <Modal
+        title="Upload CSV file"
+        centered
+        open={isUploadModalOpen}
+        onOk={() => setIsUploadModalOpen(false)}
+        onCancel={() => setIsUploadModalOpen(false)}
+      >
+        <UploadCSV />
+      </Modal>
     </>
   );
 };
@@ -35,16 +52,13 @@ export const getServerSideProps: GetServerSideProps = async (ctx: any) => {
     return {
       props: {
         login: false,
-        user,
       },
     };
   }
 
   return {
     props: {
-      // login: true,
       login: !!(user && user.id),
-      user,
     },
   };
 };
