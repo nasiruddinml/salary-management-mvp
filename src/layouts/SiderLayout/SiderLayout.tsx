@@ -13,7 +13,6 @@ import React, { useState } from "react";
 const { Header, Content, Footer } = Layout;
 
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
 import styles from "./sider-layout.module.less";
 
 const SiderLayout = ({
@@ -23,8 +22,6 @@ const SiderLayout = ({
 }): React.ReactElement => {
   const [collapsed, setCollapsed] = useState(false);
   const router = useRouter();
-  const { isLogin } = useSelector((store: any) => store.auth);
-  console.log(isLogin);
   return (
     <Layout hasSider style={{ minHeight: "100vh" }}>
       <Sider
