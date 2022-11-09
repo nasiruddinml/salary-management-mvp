@@ -59,47 +59,48 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 ### Folder Structure
 
- .
-    ├── ...
-		├── README.md          			# Documentation file
-		├── cypress.config.ts   		# Cypress config file
-		├── .env.local				   		# Environment variable file
-		├── .eslintrc.json		   		# Eslint config file
-		├── less-support.d.ts   		# type definition for less
-		├── next-env.d.ts		       	# type definition for next
-		├── next.config.js		   		# Next js config file
-		├── package-lock.json    		# package lock file for npm
-		├── package.json    				# package file for node
-		├── tsconfig.json          	# typescript config file
-    ├── pages             			# Hold all pages and apis
-    │   ├── api	        				# Hold our all api routes
-		│   │   ├── employees				# employees route
-		│   │   ├── file-upload			# file-upload route
-		│   │   └── index.ts				# Base api route
-    │   ├── dashboard         	# Our dashboard page
-		│   ├── employees         	# Our employees page
-		│   ├── settings         		# Our settings page
-		│   ├── login								# Our login page
-		│   ├── logout							# Our logout page
-    │   └── index.ts          	# Our base page
-		├── prisma
-		│   ├── dev.db							# Our local sqlite DB
-		│   ├── migrations					# Hold our all migrations
-		│   └── schema.prisma				# Our database schema
-		├── public									# Hold our public assets
-		├── src											# Hold our application code
-		│   ├── api									# Hold api related functions
-		│   ├── components					# Hold our all components
-		│   │   ├── atoms						# Hold our all atomic components
-		│   │   └── molecules				# Hold our all molecules components
-		│   ├── constants						# Hold all our constants
-		│   ├── features						# All our feature goes here
-		│   ├── helpers							# All our helper methods goes here
-		│   ├── layouts							# Hold our application layouts
-		│   ├── redux								# Hold our store & reducer
-		│   └── types								# hold our all types
-		├── styles									# hold our styles
-    └── ...
+	.
+	├── ...
+	├── README.md          			# Documentation file
+	├── cypress.config.ts   		# Cypress config file
+	├── .env.local				# Environment variable file
+	├── .eslintrc.json		  	# Eslint config file
+	├── less-support.d.ts   		# type definition for less
+	├── next-env.d.ts		       	# type definition for next
+	├── next.config.js		   	# Next js config file
+	├── package-lock.json    		# package lock file for npm
+	├── package.json    			# package file for node
+	├── tsconfig.json          		# typescript config file
+	├── pages             			# Hold all pages and apis
+	│   ├── _app.tsx          			# Our root page renderer
+	│   ├── api	        		# Hold our all api routes
+	│   │   ├── employees			# employees route
+	│   │   ├── file-upload			# file-upload route
+	│   │   └── index.ts			# Base api route
+	│   ├── dashboard         		# Our dashboard page
+	│   ├── employees         		# Our employees page
+	│   ├── settings         		# Our settings page
+	│   ├── login				# Our login page
+	│   ├── logout				# Our logout page
+	│   └── index.tsx          		# Our base page
+	├── prisma				# Our database orm
+	│   ├── dev.db				# Our local sqlite DB
+	│   ├── migrations			# Hold our all migrations
+	│   └── schema.prisma			# Our database schema
+	├── public				# Hold our public assets
+	├── src					# Hold our application code
+	│   ├── api				# Hold api related functions
+	│   ├── components			# Hold our all components
+	│   │   ├── atoms			# Hold our all atomic components
+	│   │   └── molecules			# Hold our all molecules components
+	│   ├── constants			# Hold all our constants
+	│   ├── features			# All our feature goes here
+	│   ├── helpers				# All our helper methods goes here
+	│   ├── layouts				# Hold our application layouts
+	│   ├── redux				# Hold our store & reducer
+	│   └── types				# hold our all types
+	├── styles				# hold our styles
+	└── ...
 
 
 ### Design Structure
