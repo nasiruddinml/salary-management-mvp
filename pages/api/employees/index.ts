@@ -106,3 +106,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(403).json({ err: "Error occurred." });
   }
 };
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

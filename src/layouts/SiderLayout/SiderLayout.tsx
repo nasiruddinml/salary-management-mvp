@@ -39,22 +39,23 @@ const SiderLayout = ({
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={["dashboard"]}
+          activeKey={router.pathname}
           items={[
             {
-              key: "1",
+              key: "dashboard",
               icon: <DesktopOutlined />,
               label: "Dashboard",
               onClick: () => router.push("/dashboard"),
             },
             {
-              key: "2",
+              key: "employees",
               icon: <TeamOutlined />,
               label: "Employees",
               onClick: () => router.push("/employees"),
             },
             {
-              key: "3",
+              key: "settings",
               icon: <SettingOutlined />,
               label: "Settings",
               onClick: () => router.push("/settings"),

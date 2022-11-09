@@ -29,7 +29,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         fullName,
         salary: salary ? salary : 0.0,
       };
-      const updateEmployee = await prisma.employee
+      const response = await prisma.employee
         .update({
           where: {
             id: id.toString(),
@@ -41,8 +41,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             message: err?.meta?.cause ? err?.meta?.cause : "Not Acceptable",
           });
         });
+      if (response) {
+        res.status(204).json({});
+      }
 
-      res.status(204);
       // Let's write the delete method
     } else if (reqMethod === "DELETE") {
       await prisma.employee
@@ -57,7 +59,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           });
         });
 
-      res.status(204);
+      res.status(204).json({});
     } else {
       // If not method match return 405
       res.status(405).json({ message: "Method not allowed!!" });
@@ -67,4 +69,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     // Return permission denied
     res.status(403).json({ err: "Error occurred." });
   }
+};
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
 };

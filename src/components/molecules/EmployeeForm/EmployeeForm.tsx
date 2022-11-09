@@ -1,4 +1,4 @@
-import { Form, Input, Modal } from "antd";
+import { Form, Input, Modal, Space } from "antd";
 import React from "react";
 import { IEmployee } from "../../../types";
 
@@ -26,8 +26,8 @@ const EmpUpdateForm: React.FC<EmpUpdateFormProps> = ({
   return (
     <Modal
       open={open}
-      title="Update Employee Data"
-      okText="Update"
+      title={<h4 style={{ textAlign: "center" }}>Edit Employee</h4>}
+      okText="Save"
       cancelText="Cancel"
       onCancel={onCancel}
       onOk={() => {
@@ -41,6 +41,8 @@ const EmpUpdateForm: React.FC<EmpUpdateFormProps> = ({
           });
       }}
     >
+      <h4>Employee Id {empData.id}</h4>
+      <Space />
       <Form
         form={form}
         layout="vertical"

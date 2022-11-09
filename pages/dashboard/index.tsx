@@ -1,10 +1,10 @@
+import UploadCSV from "@components/molecules/UploadCSV/UploadCSV";
 import { getUser } from "@helpers/session.helper";
 import { Button, Card, Modal } from "antd";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import SiderLayout from "src/layouts/SiderLayout/SiderLayout";
-import UploadCSV from "../../src/components/molecules/UploadCSV/UploadCSV";
 
 interface IDashboardProps {
   login: boolean;
